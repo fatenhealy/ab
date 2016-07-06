@@ -1,0 +1,105 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:drawer="nativescript-telerik-ui/sidedrawer"
+      loaded="pageLoaded" actionBarHidden="true"
+      backgroundSpanUnderStatusBar="true">
+  <drawer:RadSideDrawer id="SideDrawer" class="page-content">  
+      <drawer:RadSideDrawer.drawerTransition>
+          <drawer:SlideInOnTopTransition/>
+      </drawer:RadSideDrawer.drawerTransition>
+    <drawer:RadSideDrawer.drawerContent>
+      <GridLayout rows="*, auto">
+        <StackLayout style="background-color: #053140;">
+          <Image src="res://logo" cssClass="slide-out-img" stretch="none" />
+          <Button tap="selectView" tag="0" cssClass="{{ selectedViewIndex === 0 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="My agenda" />
+          <Button tap="selectView" tag="1" cssClass="{{ selectedViewIndex === 1 ? 'slide-out-btn' : 'slide-out-btn-selected' }}" text="All sessions" />
+        </StackLayout>
+        <StackLayout style="background-color: #053140;" row="1">
+          <Label tap="goToUrl" tag="http://www.nativescript.org" cssClass="slide-out-btn-about">
+            <Label.formattedText>
+              <FormattedString>
+                <FormattedString.spans>
+                  <Span text="Created with " />
+                  <Span text="NativeScript" fontAttributes="Bold"  />
+                </FormattedString.spans>
+              </FormattedString>
+            </Label.formattedText>
+          </Label>
+        </StackLayout>
+      </GridLayout>
+  </drawer:RadSideDrawer.drawerContent>
+
+    <drawer:RadSideDrawer.mainContent>
+      <GridLayout rows="auto, *">
+        <!-- Header -->
+        <StackLayout cssClass="page-header">
+          <GridLayout cssClass="action-bar darker">
+            <GridLayout cssClass="action-wrap" tap="showSlideout" columns="auto" horizontalAlignment="left">
+              <Image stretch="none" cssClass="icon-image" src="res://ic_menu"/>
+            </GridLayout>
+            <Label text="{{ actionBarTitle }}" cssClass="action-bar-title" />
+          </GridLayout>
+
+          <GridLayout cssClass="darker" visibility="{{ isSessionsPage ? 'visible' : 'collapsed' }}">
+            <SegmentedBar selectedBackgroundColor="#5CE500" selectedIndex="{{ selectedIndex }}">
+              <SegmentedBar.items>
+                <SegmentedBarItem title="JULY 12" />
+                <SegmentedBarItem title="JULY 13" />
+              </SegmentedBar.items>
+            </SegmentedBar>
+          </GridLayout>
+          <Label cssClass="page-title" horizontalAlignment="center" margin="15" visibility="{{ isSessionsPage ? 'visible' : 'collapsed' }}">
+            <Label.formattedText>
+              <FormattedString>
+                <FormattedString.spans>
+                  <Span text="{{ dayHeader }}" fontAttributes="Bold" />
+                </FormattedString.spans>
+              </FormattedString>
+            </Label.formattedText>
+          </Label>
+        </StackLayout>
+
+        <!-- Sessions Views -->
+        <GridLayout  rows="auto, *" row="1" visibility="{{ isSessionsPage ? 'visible' : 'collapsed' }}">
+          <!-- Search -->
+          <SearchBar text="{{ search }}" hint="Search" cssClass="search" textFieldBackgroundColor="white" id="search"/>
+
+          <!-- List -->
+          <ListView items="{{ sessions }}" row="1" separatorColor="#5CE500" itemTap="selectSession" cssClass="listView">
+            <ListView.itemTemplate>
+              <GridLayout columns="auto, *" cssClass="{{ isBreak ? 'break-row' : 'list-view-row' }}">
+
+                <GridLayout visibility="{{ isBreak ? 'collapsed' : 'visible' }}"
+                  cssClass="favourite-wrap" tap="toggleFavorite" columns="auto" rows="auto">
+                  <Image stretch="none" cssClass="icon-image"
+                    src="{{ favorite ? 'res://ic_add_to_fav_1' : 'res://ic_add_to_fav' }}" />
+                </GridLayout>
+
+                <StackLayout col="1">
+
+                  <Label cssClass="info-orange">
+                    <Label.formattedText>
+                      <FormattedString>
+                        <FormattedString.spans>
+                          <Span text="{{ range }}" fontAttributes="Bold" />
+                        </FormattedString.spans>
+                      </FormattedString>
+                    </Label.formattedText>
+                  </Label>
+
+                  <Label text="{{ title }}" textWrap="true" cssClass="info-bigger"/>
+
+                  <Label visibility="{{ room ? 'visible' : 'collapsed' }}" text="{{ room }}" cssClass="info-orange" />
+
+                </StackLayout>
+
+              </GridLayout>
+            </ListView.itemTemplate>
+          </ListView>
+
+          <ActivityIndicator busy="{{ isLoading }}" row="1" horizontalAlignment="center" verticalAlignment="center" />
+        </GridLayout>
+
+   </GridLayout>
+    </drawer:RadSideDrawer.mainContent>
+  </drawer:RadSideDrawer>
+</Page>

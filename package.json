@@ -1,0 +1,23 @@
+{
+	"name": "APJExchange",
+	"description": "Telerik ...",
+	"version": "1.0.0",
+	"nativescript": {
+		"id": "com.healy.APJExchange",
+		"tns-android": {
+			"version": "2.1.1"
+		},
+		"tns-ios": {
+			"version": "2.1.0"
+		}
+	},
+	"dependencies": {
+		"APJExchange-options": "file:options",
+		"nativescript-telerik-ui-pro": "file:../nativescript-ui-pro.tgz",
+		"tns-core-modules": "2.1.0"
+	},
+	"devDependencies": {
+		"nativescript-dev-typescript": "^0.3.1",
+		"typescript": "^1.8.10"
+	}
+}

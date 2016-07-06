@@ -1,0 +1,7 @@
+{
+	"name": "APJExchange",
+	"main": "app.js",
+	"version": "0.4.2",
+	"description": "Nativescript APJExchange  application",
+	"license": "BSD"
+}
