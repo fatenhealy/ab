@@ -1,0 +1,28 @@
+{
+	"ProjectName": "sample-TelerikNEXT",
+	"ProjectGuid": "{46ced106-8d3f-4a4e-958c-ea7a0e7edc1b}",
+	"projectVersion": 1,
+	"AppIdentifier": "com.telerik.sampleTelerikNEXT",
+	"DisplayName": "sample-TelerikNEXT",
+	"Author": "",
+	"Description": "sample-TelerikNEXT",
+	"BundleVersion": "1.0",
+	"AndroidVersionCode": "1",
+	"iOSDeviceFamily": [
+		"1",
+		"2"
+	],
+	"iOSBackgroundMode": [],
+	"ProjectTypeGuids": "{F0A65104-D4F4-4012-B799-F612D75820F6}",
+	"AndroidPermissions": [
+		"android.permission.INTERNET"
+	],
+	"DeviceOrientations": [
+		"Portrait",
+		"Landscape"
+	],
+	"AndroidHardwareAcceleration": "false",
+	"iOSStatusBarStyle": "Default",
+	"FrameworkVersion": "2.0.0",
+	"Framework": "NativeScript"
+}
