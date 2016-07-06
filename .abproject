@@ -1,11 +1,11 @@
 {
-	"ProjectName": "sample-TelerikNEXT",
-	"ProjectGuid": "{46ced106-8d3f-4a4e-958c-ea7a0e7edc1b}",
+	"ProjectName": "APJExchange",
+	"ProjectGuid": "{636ec5b8-784f-48c6-8c0a-1e1ea82213d7}",
 	"projectVersion": 1,
-	"AppIdentifier": "com.telerik.sampleTelerikNEXT",
-	"DisplayName": "sample-TelerikNEXT",
+	"AppIdentifier": "com.healy.APJExchange",
+	"DisplayName": "APJ Exchange",
 	"Author": "",
-	"Description": "sample-TelerikNEXT",
+	"Description": "APJ Exchange",
 	"BundleVersion": "1.0",
 	"AndroidVersionCode": "1",
 	"iOSDeviceFamily": [
